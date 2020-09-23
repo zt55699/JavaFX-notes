@@ -135,6 +135,130 @@ public void addStackPane(HBox hb) {
 ![StackPane2](https://docs.oracle.com/javafx/2/layout/img/hbox_stack.png "StackPane2")
 
 ## 6.GridPane 
+The GridPane layout pane enables you to create a flexible grid of rows and columns in which to lay out nodes. Nodes can be placed in any cell in the grid and can span cells as needed. A grid pane is useful for creating forms or any layout that is organized in rows and columns.
+
+![GridPane](https://docs.oracle.com/javafx/2/layout/img/grid.png "GridPane")
+
+Example: Create a Grid Pane
+```
+public GridPane addGridPane() {
+    GridPane grid = new GridPane();
+    grid.setHgap(10);
+    grid.setVgap(10);
+    grid.setPadding(new Insets(0, 10, 0, 10));
+
+    // Category in column 2, row 1
+    Text category = new Text("Sales:");
+    category.setFont(Font.font("Arial", FontWeight.BOLD, 20));
+    grid.add(category, 1, 0); 
+
+    // Title in column 3, row 1
+    Text chartTitle = new Text("Current Year");
+    chartTitle.setFont(Font.font("Arial", FontWeight.BOLD, 20));
+    grid.add(chartTitle, 2, 0);
+
+    // Subtitle in columns 2-3, row 2
+    Text chartSubtitle = new Text("Goods and Services");
+    grid.add(chartSubtitle, 1, 1, 2, 1);
+
+    // House icon in column 1, rows 1-2
+    ImageView imageHouse = new ImageView(
+      new Image(LayoutSample.class.getResourceAsStream("graphics/house.png")));
+    grid.add(imageHouse, 0, 0, 1, 2); 
+
+    // Left label in column 1 (bottom), row 3
+    Text goodsPercent = new Text("Goods\n80%");
+    GridPane.setValignment(goodsPercent, VPos.BOTTOM);
+    grid.add(goodsPercent, 0, 2); 
+
+    // Chart in columns 2-3, row 3
+    ImageView imageChart = new ImageView(
+     new Image(LayoutSample.class.getResourceAsStream("graphics/piechart.png")));
+    grid.add(imageChart, 1, 2, 2, 1); 
+
+    // Right label in column 4 (top), row 3
+    Text servicesPercent = new Text("Services\n20%");
+    GridPane.setValignment(servicesPercent, VPos.TOP);
+    grid.add(servicesPercent, 3, 2);
+
+    return grid;
+}
+```
+
 ## 7.FlowPane 
+The nodes within a FlowPane layout pane are laid out consecutively and wrap at the boundary set for the pane. Nodes can flow vertically (in columns) or horizontally (in rows). 
+
+![FlowPane](https://docs.oracle.com/javafx/2/layout/img/flow.png "FlowPane")
+
+Example: Create a Flow Pane
+```
+public FlowPane addFlowPane() {
+    FlowPane flow = new FlowPane();
+    flow.setPadding(new Insets(5, 0, 5, 0));
+    flow.setVgap(4);
+    flow.setHgap(4);
+    flow.setPrefWrapLength(170); // preferred width allows for two columns
+    flow.setStyle("-fx-background-color: DAE6F3;");
+
+    ImageView pages[] = new ImageView[8];
+    for (int i=0; i<8; i++) {
+        pages[i] = new ImageView(
+            new Image(LayoutSample.class.getResourceAsStream(
+            "graphics/chart_"+(i+1)+".png")));
+        flow.getChildren().add(pages[i]);
+    }
+
+    return flow;
+}
+```
+
 ## 8.TilePane 
+
+A tile pane is similar to a flow pane. The TilePane layout pane places all of the nodes in a grid in which each cell, or tile, is the same size.
+
+Example: Create a Tile Pane
+```
+TilePane tile = new TilePane();
+tile.setPadding(new Insets(5, 0, 5, 0));
+tile.setVgap(4);
+tile.setHgap(4);
+tile.setPrefColumns(2);
+tile.setStyle("-fx-background-color: DAE6F3;");
+
+ImageView pages[] = new ImageView[8];
+for (int i=0; i<8; i++) {
+     pages[i] = new ImageView(
+        new Image(LayoutSample.class.getResourceAsStream(
+        "graphics/chart_"+(i+1)+".png")));
+     tile.getChildren().add(pages[i]);
+}
+```
+
 ## 9.AnchorPane
+
+The AnchorPane layout pane enables you to anchor nodes to the top, bottom, left side, right side, or center of the pane. As the window is resized, the nodes maintain their position relative to their anchor point. Nodes can be anchored to more than one position and more than one node can be anchored to the same position. 
+
+![AnchorPane](https://docs.oracle.com/javafx/2/layout/img/anchor.png "AnchorPane")
+
+Example: Create an Anchor Pane
+```
+public AnchorPane addAnchorPane(GridPane grid) {
+    AnchorPane anchorpane = new AnchorPane();
+    Button buttonSave = new Button("Save");
+    Button buttonCancel = new Button("Cancel");
+
+    HBox hb = new HBox();
+    hb.setPadding(new Insets(0, 10, 10, 10));
+    hb.setSpacing(10);
+    hb.getChildren().addAll(buttonSave, buttonCancel);
+
+    anchorpane.getChildren().addAll(grid,hb);   // Add grid from Example 1-5
+    AnchorPane.setBottomAnchor(hb, 8.0);
+    AnchorPane.setRightAnchor(hb, 5.0);
+    AnchorPane.setTopAnchor(grid, 10.0);
+
+    return anchorpane;
+}
+```
+
+![AnchorPane2](https://docs.oracle.com/javafx/2/layout/img/anchor_in_border_big.png "AnchorPane")
