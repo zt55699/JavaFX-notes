@@ -26,6 +26,7 @@ Example: Create a Pane
   canvas.getChildren().addAll(circle,rectangle);
 ```
 
+
 ## 2.BorderPane
 The BorderPane layout pane provides five regions in which to place nodes: top, bottom, left, right, and center. If your application does not need one of the regions, you do not need to define it and no space is allocated for it.
 
@@ -43,6 +44,7 @@ addStackPane(hbox);         // Add stack to HBox in top region
 border.setCenter(addGridPane());
 border.setRight(addFlowPane());
 ```
+
 
 ## 3.HBox
 The HBox layout pane provides an easy way for arranging a series of nodes in a single row.
@@ -68,6 +70,7 @@ public HBox addHBox() {
     return hbox;
 }
 ```
+
 
 ## 4.VBox
 The VBox layout pane is similar to the HBox layout pane, except that the nodes are arranged in a single column. Figure 1-4 shows an example of a VBox pane.
@@ -99,6 +102,7 @@ public VBox addVBox(); {
     return vbox;
 }
 ```
+
 
 ## 5.StackPane
 The StackPane layout pane places all of the nodes within a single stack with each new node added on top of the previous node. This layout model provides an easy way to overlay text on a shape or image or to overlap common shapes to create a complex shape.
@@ -133,6 +137,7 @@ public void addStackPane(HBox hb) {
 }
 ```
 ![StackPane2](https://docs.oracle.com/javafx/2/layout/img/hbox_stack.png "StackPane2")
+
 
 ## 6.GridPane 
 The GridPane layout pane enables you to create a flexible grid of rows and columns in which to lay out nodes. Nodes can be placed in any cell in the grid and can span cells as needed. A grid pane is useful for creating forms or any layout that is organized in rows and columns.
@@ -185,6 +190,7 @@ public GridPane addGridPane() {
 }
 ```
 
+
 ## 7.FlowPane 
 The nodes within a FlowPane layout pane are laid out consecutively and wrap at the boundary set for the pane. Nodes can flow vertically (in columns) or horizontally (in rows). 
 
@@ -212,6 +218,7 @@ public FlowPane addFlowPane() {
 }
 ```
 
+
 ## 8.TilePane 
 
 A tile pane is similar to a flow pane. The TilePane layout pane places all of the nodes in a grid in which each cell, or tile, is the same size.
@@ -233,6 +240,7 @@ for (int i=0; i<8; i++) {
      tile.getChildren().add(pages[i]);
 }
 ```
+
 
 ## 9.AnchorPane
 
@@ -261,4 +269,6 @@ public AnchorPane addAnchorPane(GridPane grid) {
 }
 ```
 
+
+Final layout:
 ![AnchorPane2](https://docs.oracle.com/javafx/2/layout/img/anchor_in_border_big.png "AnchorPane")
