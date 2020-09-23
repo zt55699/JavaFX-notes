@@ -269,6 +269,7 @@ public AnchorPane addAnchorPane(GridPane grid) {
 }
 ```
 
-
+----
 Final layout:
+
 ![AnchorPane2](https://docs.oracle.com/javafx/2/layout/img/anchor_in_border_big.png "AnchorPane")
