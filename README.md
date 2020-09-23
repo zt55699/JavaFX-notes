@@ -134,7 +134,7 @@ public void addStackPane(HBox hb) {
 ```
 ![StackPane2](https://docs.oracle.com/javafx/2/layout/img/hbox_stack.png "StackPane2")
 
-## 6.VBoxGridPane 
-## 7.VBoxFlowPane 
-## 8.VBoxTilePane 
-## 9.VBoxAnchorPane
+## 6.GridPane 
+## 7.FlowPane 
+## 8.TilePane 
+## 9.AnchorPane
